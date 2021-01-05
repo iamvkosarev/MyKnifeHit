@@ -193,6 +193,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3996175096177796646, guid: 2bb6150b9a83e8c43ab9415ed4bda013, type: 3}
   m_PrefabInstance: {fileID: 2208402722934064140}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &365964551 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 365964552, guid: 2bb6150b9a83e8c43ab9415ed4bda013, type: 3}
+  m_PrefabInstance: {fileID: 2208402722934064140}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 365964550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09319de0ae88e664ca53c0ffadbea208, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -540,10 +551,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 802369444, guid: e55dacb7c55f09a45a8be6d7c4b01c12, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 356
-      objectReference: {fileID: 0}
     - target: {fileID: 1387761795, guid: e55dacb7c55f09a45a8be6d7c4b01c12, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -552,25 +559,73 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1263984248}
-    - target: {fileID: 3131079629144065205, guid: e55dacb7c55f09a45a8be6d7c4b01c12, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 30.99989
-      objectReference: {fileID: 0}
-    - target: {fileID: 3131079629144065205, guid: e55dacb7c55f09a45a8be6d7c4b01c12, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 37.081207
-      objectReference: {fileID: 0}
-    - target: {fileID: 3916933633597685710, guid: e55dacb7c55f09a45a8be6d7c4b01c12, type: 3}
-      propertyPath: m_Color.a
+    - target: {fileID: 1174659736552012479, guid: e55dacb7c55f09a45a8be6d7c4b01c12, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 6552763006057937025, guid: e55dacb7c55f09a45a8be6d7c4b01c12, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -244.3
+    - target: {fileID: 1174659736552012479, guid: e55dacb7c55f09a45a8be6d7c4b01c12, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 6552763006057937025, guid: e55dacb7c55f09a45a8be6d7c4b01c12, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 58.503372
+    - target: {fileID: 1174659736552012479, guid: e55dacb7c55f09a45a8be6d7c4b01c12, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1174659736552012479, guid: e55dacb7c55f09a45a8be6d7c4b01c12, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 365964551}
+    - target: {fileID: 1174659736552012479, guid: e55dacb7c55f09a45a8be6d7c4b01c12, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: KnifeHit.Items.Knife.KnifeSpawner, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1174659736552012479, guid: e55dacb7c55f09a45a8be6d7c4b01c12, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ThrowKnife
+      objectReference: {fileID: 0}
+    - target: {fileID: 1174659736552012479, guid: e55dacb7c55f09a45a8be6d7c4b01c12, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1174659736552012479, guid: e55dacb7c55f09a45a8be6d7c4b01c12, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1174659736552012479, guid: e55dacb7c55f09a45a8be6d7c4b01c12, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1174659736552012479, guid: e55dacb7c55f09a45a8be6d7c4b01c12, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1174659736552012479, guid: e55dacb7c55f09a45a8be6d7c4b01c12, type: 3}
+      propertyPath: m_Colors.m_PressedColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1174659736552012479, guid: e55dacb7c55f09a45a8be6d7c4b01c12, type: 3}
+      propertyPath: m_Colors.m_PressedColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1174659736552012479, guid: e55dacb7c55f09a45a8be6d7c4b01c12, type: 3}
+      propertyPath: m_Colors.m_PressedColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1174659736552012479, guid: e55dacb7c55f09a45a8be6d7c4b01c12, type: 3}
+      propertyPath: m_Colors.m_SelectedColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1174659736552012479, guid: e55dacb7c55f09a45a8be6d7c4b01c12, type: 3}
+      propertyPath: m_Colors.m_SelectedColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1174659736552012479, guid: e55dacb7c55f09a45a8be6d7c4b01c12, type: 3}
+      propertyPath: m_Colors.m_SelectedColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3343196277442956307, guid: e55dacb7c55f09a45a8be6d7c4b01c12, type: 3}
+      propertyPath: m_Name
+      value: Throw Knife Button
       objectReference: {fileID: 0}
     - target: {fileID: 7306552340786105147, guid: e55dacb7c55f09a45a8be6d7c4b01c12, type: 3}
       propertyPath: m_Name
@@ -620,9 +675,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8392289082938412151, guid: e55dacb7c55f09a45a8be6d7c4b01c12, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: ff65c279956a47f4486eddbbb675cd00, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e55dacb7c55f09a45a8be6d7c4b01c12, type: 3}

@@ -51,7 +51,7 @@ namespace KnifeHit.Items.Knife
             _wasCurrentKnifeThrown = false;
         }
 
-        private void Update()
+        /*private void Update()
         {
             CheckClicking();
         }
@@ -63,13 +63,17 @@ namespace KnifeHit.Items.Knife
                 ThrowKnife();
             }
         }
-
-        private void ThrowKnife()
+*/
+        public void ThrowKnife()
         {
+            if (_wasCurrentKnifeThrown) { return; }
             _wasCurrentKnifeThrown = true;
                Vector2 velocity = new Vector2(0, _gameProperies.knifeSpeed);
-            _currentKnifeMover.SetVelocity(velocity);
+            if (_currentKnifeMover != null)
+            {
+                _currentKnifeMover.SetVelocity(velocity);
             _currentKnifeMover = null;
+            }
 
             StartCoroutine(WaitForRespawn());
         }
