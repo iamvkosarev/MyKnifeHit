@@ -1,4 +1,5 @@
-﻿namespace KnifeHit.Core {
+﻿namespace KnifeHit.Core 
+{
 
     [System.Serializable]
     public class ProgressData

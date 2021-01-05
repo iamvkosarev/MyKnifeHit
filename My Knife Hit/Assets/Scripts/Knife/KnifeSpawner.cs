@@ -9,29 +9,46 @@ namespace KnifeHit.Knife
     public class KnifeSpawner : MonoBehaviour
     {
 
-        [SerializeField] private GameProperies gameProperies;
-        [SerializeField] private GameObject knifePrefab;
+        [SerializeField] private GameProperies _gameProperies;
+        [SerializeField] private GameObject _knifePrefab;
 
-        private Knife _currentKnife;
+        private int _numOfKnifeToSpawn = 0;
+        private KnifeObj _currentKnife;
         private Mover _currentKnifeMover;
+        private bool _wasCurrentKnifeThrown = false;
 
-        private void Start()
+        public void ReactOnKnifeTouch(object obj, OnKnifeCollisionEventArgs args)
         {
-            SpawnNewKnife(new object(), new OnKnifeCollisionEventArgs(KnifeCollisionType.Log));
+            if (args.knifeCollisionType == KnifeCollisionType.Knife)
+            {
+                ProhibitSpawning();
+            }
         }
 
-        private void SpawnNewKnife(object sender, OnKnifeCollisionEventArgs e)
+        public void ProhibitSpawning()
         {
-            if (_currentKnife != null)
+            this._numOfKnifeToSpawn = 0;
+            if (!_wasCurrentKnifeThrown)
             {
-                _currentKnife.OnKnifeCollision -= SpawnNewKnife;
+                DestroyCurrentKnife();
             }
+        }
 
-            GameObject newKnife = Instantiate(knifePrefab);
+        public void SetNumToSpawn(int num)
+        {
+            this._numOfKnifeToSpawn = num;
+        }
+
+        public void SpawnNewKnife()
+        {
+            if (_numOfKnifeToSpawn <= 0) { return; }
+            _numOfKnifeToSpawn--;
+            GameObject newKnife = Instantiate(_knifePrefab);
             newKnife.transform.position = transform.position;
-            _currentKnife = newKnife.GetComponent<Knife>();
+            _currentKnife = newKnife.GetComponent<KnifeObj>();
             _currentKnifeMover = newKnife.GetComponent<Mover>();
-            _currentKnife.OnKnifeCollision += SpawnNewKnife;
+            _currentKnife.OnKnifeCollision += ReactOnKnifeTouch;
+            _wasCurrentKnifeThrown = false;
         }
 
         private void Update()
@@ -49,9 +66,23 @@ namespace KnifeHit.Knife
 
         private void ThrowKnife()
         {
-            Vector2 velocity = new Vector2(0, gameProperies.knifeSpeed);
+            _wasCurrentKnifeThrown = true;
+               Vector2 velocity = new Vector2(0, _gameProperies.knifeSpeed);
             _currentKnifeMover.SetVelocity(velocity);
             _currentKnifeMover = null;
+
+            StartCoroutine(WaitForRespawn());
+        }
+
+        IEnumerator WaitForRespawn()
+        {
+            yield return new WaitForSeconds(_gameProperies.respawnKnifeDelay);
+            SpawnNewKnife();
+        }
+
+        public void DestroyCurrentKnife()
+        {
+            Destroy(_currentKnife.gameObject);
         }
     }
 }
