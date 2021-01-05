@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74f2e85157b175242b33b6e7a4359889, type: 3}
   m_Name: Game Properies
   m_EditorClassIdentifier: 
-  rotationSpeedOfLog: 110
-  chanceOfAppleAppearing: 0.25
+  rotationSpeedOfLog: 205
+  chanceOfAppleAppearing: 0.31
   knifeSpeed: 20
-  respawnKnifeDelay: 0.15
+  respawnKnifeDelay: 0.1
   restartGameDelay: 1
   minNumOfKnivesThrow: 4
-  maxNumOfKnivesThrow: 6
+  maxNumOfKnivesThrow: 15
   minNumOfStartKnives: 0
   maxNumOfStartKnives: 3

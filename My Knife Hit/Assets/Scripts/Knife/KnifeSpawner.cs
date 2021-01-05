@@ -82,7 +82,10 @@ namespace KnifeHit.Knife
 
         public void DestroyCurrentKnife()
         {
-            Destroy(_currentKnife.gameObject);
+            if (_currentKnife)
+            {
+                Destroy(_currentKnife.gameObject);
+            }
         }
     }
 }

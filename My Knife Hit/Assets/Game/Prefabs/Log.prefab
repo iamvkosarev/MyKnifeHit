@@ -28,8 +28,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9098378963778164786}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.26, z: 0}
-  m_LocalScale: {x: 0.59303087, y: 0.59303087, z: 1.1860617}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -113,6 +113,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f9c3a12c22763f41a2284ee8759d872, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LogChipsVFXPrefab: {fileID: 3504154870537178734, guid: e6df683131feb7c4ea16d582fe4a8f73, type: 3}
+  LogsVFXPrefab: {fileID: 5682767479735439212, guid: d6c4d644458ab0e4cbe029522da2b4ce, type: 3}
+  SmallLogChipsVFXPrefab: {fileID: 1811658044734294725, guid: e4194678f7d47cc4791ccfec6db336bb, type: 3}
+  destroyAndChildVFXDelay: 3
 --- !u!114 &8798851351661914822
 MonoBehaviour:
   m_ObjectHideFlags: 0

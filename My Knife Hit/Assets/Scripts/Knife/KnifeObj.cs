@@ -51,18 +51,26 @@ namespace KnifeHit.Knife
             }
             else if (log != null)
             {
-                
+                GameController.instance.AddHitPoint();
                 log.ConnectObject(transform);
                 _mover.SetVelocity(new Vector2(0, 0));
             }
         }
-
+        public void SetDestroyTime(float time)
+        {
+            Destroy(gameObject, time);
+        }
+        public void MakeFree()
+        {
+            transform.parent = null;
+            GetComponent<PolygonCollider2D>().enabled = false;
+        }
         private void SetPostPunchMovement()
         {
             _mover.SetVelocity(new Vector2(UnityEngine.Random.Range(-2f,2f), 
-                UnityEngine.Random.Range(0f, 1f)));
+                UnityEngine.Random.Range(-1f, -5f)));
             _mover.SwitchRigidbodyType(RigidbodyType2D.Dynamic);
-            _rotator.SetRotationSpeed(UnityEngine.Random.Range(70f,110f));
+            _rotator.SetRotationSpeed(UnityEngine.Random.Range(300f,700f));
             _rotator.SetRotationSide(UnityEngine.Random.Range(0f, 1f) < 0.5f);
         }
     }

@@ -19,7 +19,10 @@ namespace KnifeHit.Log
         {
             UpdateRotationSpeedAcordingProps();
         }
-
+        public void ExploreLog()
+        {
+            _currentLog.DestroyVFX();
+        }
         private void UpdateRotationSpeedAcordingProps()
         {
             if (_currentLogRotator !=null && _currentLogRotator.GetSpeed() != _gameProperies.rotationSpeedOfLog)
@@ -47,7 +50,10 @@ namespace KnifeHit.Log
 
         public void DestroyLog()
         {
-            Destroy(_currentLog.gameObject);
+            if (_currentLog)
+            {
+                Destroy(_currentLog.gameObject);
+            }
         }
     }
 }

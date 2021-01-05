@@ -15,7 +15,8 @@ namespace KnifeHit.Core
 
         private LogSpawner _logSpawner;
         private KnifeSpawner _knifeSpawner;
-        private int _numOfKnifeToSpawn;
+        private int _numOfKnivesToSpawn;
+        private int _numOfHitLog;
 
         void Awake()
         {
@@ -46,9 +47,9 @@ namespace KnifeHit.Core
         private void InitializeKnife()
         {
             _knifeSpawner = _knifeSpawnerPrefab.GetComponent<KnifeSpawner>();
-            _numOfKnifeToSpawn = UnityEngine.Random.Range(_gameProperies.minNumOfKnivesThrow,
+            _numOfKnivesToSpawn = UnityEngine.Random.Range(_gameProperies.minNumOfKnivesThrow,
                 _gameProperies.maxNumOfKnivesThrow +1);
-            _knifeSpawner.SetNumToSpawn(_numOfKnifeToSpawn);
+            _knifeSpawner.SetNumToSpawn(_numOfKnivesToSpawn);
             _knifeSpawner.SpawnNewKnife();
         }
 
@@ -57,10 +58,20 @@ namespace KnifeHit.Core
             StartCoroutine(LoadingRestart());
         }
 
+        public void AddHitPoint()
+        {
+            _numOfHitLog++;
+            if (_numOfHitLog == _numOfKnivesToSpawn)
+            {
+                _logSpawner.ExploreLog();
+                RestartGame();
+            }
+        }
         IEnumerator LoadingRestart()
         {
             yield return new WaitForSeconds(_gameProperies.restartGameDelay);
             //LoadLoseCanvas();
+            _numOfHitLog = 0;
             _logSpawner.DestroyLog();
             _knifeSpawner.DestroyCurrentKnife();
             Debug.Log("Инициализировать объекты заново");
