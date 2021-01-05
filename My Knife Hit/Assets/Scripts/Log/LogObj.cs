@@ -13,13 +13,13 @@ namespace KnifeHit.Log
         [SerializeField] private GameObject SmallLogChipsVFXPrefab;
         [SerializeField] private float destroyAndChildVFXDelay = 3f;
 
-        private int _currentNumOfChild;
+        private int _currentNumOfChildren;
 
         private void Update()
         {
-            if (transform.childCount != _currentNumOfChild)
+            if (transform.childCount != _currentNumOfChildren)
             {
-                _currentNumOfChild = transform.childCount;
+                _currentNumOfChildren = transform.childCount;
                 SpawnVFX(SmallLogChipsVFXPrefab);
             }
         }
@@ -35,6 +35,11 @@ namespace KnifeHit.Log
             SpawnVFX(LogChipsVFXPrefab);
             SpawnVFX(SmallLogChipsVFXPrefab);
             Destroy(gameObject);
+        }
+
+        public void SetStartNumOfChildren(int num)
+        {
+            this._currentNumOfChildren = num;
         }
 
         private void SpawnVFX(GameObject VFXPrefab)

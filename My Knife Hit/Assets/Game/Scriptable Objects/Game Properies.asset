@@ -13,11 +13,13 @@ MonoBehaviour:
   m_Name: Game Properies
   m_EditorClassIdentifier: 
   rotationSpeedOfLog: 205
+  minTimeOnStartRotation: 0
+  maxTimeOnStartRotation: 3
   chanceOfAppleAppearing: 0.31
   knifeSpeed: 20
   respawnKnifeDelay: 0.1
   restartGameDelay: 1
   minNumOfKnivesThrow: 4
-  maxNumOfKnivesThrow: 15
+  maxNumOfKnivesThrow: 8
   minNumOfStartKnives: 0
   maxNumOfStartKnives: 3

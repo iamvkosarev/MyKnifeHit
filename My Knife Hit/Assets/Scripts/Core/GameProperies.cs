@@ -9,9 +9,11 @@ namespace KnifeHit.Core
     [CreateAssetMenu(menuName = "GameProperies")]
     public class GameProperies : ScriptableObject
     {
-        
+        [Header("Rotation")]
         [Tooltip("Degrees per second")]
         [Range(0, 360)][SerializeField] public float rotationSpeedOfLog = 30;
+        [SerializeField] public float minTimeOnStartRotation = 0f;
+        [SerializeField] public float maxTimeOnStartRotation = 3f;
         [Range(0f,1f)][SerializeField] public float chanceOfAppleAppearing= 0.25f;
         [Range(5f, 25f)][SerializeField] public float knifeSpeed = 10f;
         [SerializeField] public float respawnKnifeDelay = 0.1f;

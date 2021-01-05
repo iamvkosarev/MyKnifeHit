@@ -40,7 +40,7 @@ namespace KnifeHit.Knife
 
 
             LogObj log = collision.gameObject.GetComponent<LogObj>();
-            if (collision.gameObject.GetComponent<KnifeObj>())
+            if (collision.gameObject.GetComponent<Mover>())
             {
                 GameController.instance.RestartGame();
                 SetPostPunchMovement();

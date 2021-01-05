@@ -42,6 +42,8 @@ namespace KnifeHit.Core
         {
             _logSpawner = _logSpawnerPrefab.GetComponent<LogSpawner>();
             _logSpawner.SpawnLog();
+            _logSpawner.SpawnKnifeOnLog(UnityEngine.Random.Range(_gameProperies.minNumOfStartKnives,
+                _gameProperies.maxNumOfStartKnives+1));
         }
 
         private void InitializeKnife()
