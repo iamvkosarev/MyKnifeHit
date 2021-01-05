@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using System;
 using System.Collections;
-using KnifeHit.Knife;
-using KnifeHit.Log;
+using KnifeHit.Items.Knife;
+using KnifeHit.Items.Log;
 
 namespace KnifeHit.Core
 {
@@ -17,6 +17,8 @@ namespace KnifeHit.Core
         private KnifeSpawner _knifeSpawner;
         private int _numOfKnivesToSpawn;
         private int _numOfHitLog;
+        private int _applePoints = 0;
+        private int _numOfPassedLevels = 0;
 
         void Awake()
         {
@@ -30,34 +32,78 @@ namespace KnifeHit.Core
             }
 
             InitializeObjects();
+            UploadData();
         }
+
+        private void UploadData()
+        {
+            ProgressData progressData = SaveSystem.LoadProgress();
+            _applePoints = progressData.resultingNumOfApples;
+            _numOfPassedLevels = progressData.recordLevelsPassed;
+            UIController.instance.RefreshData(_applePoints, _numOfPassedLevels);
+        }
+
         private void InitializeObjects()
         {
-            InitializeKnife();
-            InitializeLog();
+            _logSpawner = _logSpawnerPrefab.GetComponent<LogSpawner>();
+            _knifeSpawner = _knifeSpawnerPrefab.GetComponent<KnifeSpawner>();
 
         }
-
-        private void InitializeLog()
+        public void FirstGameStart()
         {
-            _logSpawner = _logSpawnerPrefab.GetComponent<LogSpawner>();
+            UIController.instance.OpenCanvas(TypeOfUICanvas.Game);
+            _numOfHitLog = 0;
+            _numOfPassedLevels = 0;
+            RefreshProgressData();
+            StartSpawningLog();
+            StartSpawningKnives();
+        }
+        public void StartGame()
+        {
+            UIController.instance.OpenCanvas(TypeOfUICanvas.Game);
+            _numOfHitLog = 0;
+            RefreshProgressData();
+            StartSpawningLog();
+            StartSpawningKnives();
+        }
+        private void StartSpawningLog()
+        {
+            
             _logSpawner.SpawnLog();
             _logSpawner.SpawnKnifeOnLog(UnityEngine.Random.Range(_gameProperies.minNumOfStartKnives,
                 _gameProperies.maxNumOfStartKnives+1));
+            if (UnityEngine.Random.Range(0f, 1f) < _gameProperies.chanceOfAppleAppearing)
+            {
+                _logSpawner.SpawnAppleOnLog();
+            }
         }
 
-        private void InitializeKnife()
+        private void StartSpawningKnives()
         {
-            _knifeSpawner = _knifeSpawnerPrefab.GetComponent<KnifeSpawner>();
+            
             _numOfKnivesToSpawn = UnityEngine.Random.Range(_gameProperies.minNumOfKnivesThrow,
                 _gameProperies.maxNumOfKnivesThrow +1);
             _knifeSpawner.SetNumToSpawn(_numOfKnivesToSpawn);
             _knifeSpawner.SpawnNewKnife();
         }
 
-        public void RestartGame()
+        public void LoadLoseCanvas()
         {
             StartCoroutine(LoadingRestart());
+        }
+
+        public void RestartGame()
+        {
+            RefreshProgressData();
+            _numOfPassedLevels = 0;
+            UpdateLevel();
+        }
+
+        public void NextLevel()
+        {
+            _numOfPassedLevels++;
+            RefreshProgressData();
+            StartCoroutine(LoadingUpdateLevel());
         }
 
         public void AddHitPoint()
@@ -66,18 +112,47 @@ namespace KnifeHit.Core
             if (_numOfHitLog == _numOfKnivesToSpawn)
             {
                 _logSpawner.ExploreLog();
-                RestartGame();
+
+                NextLevel();
             }
+        }
+
+        public void AddApplePoint()
+        {
+            _applePoints++;
+            RefreshProgressData();
+            UIController.instance.RefreshData(_applePoints, _numOfPassedLevels);
+        }
+
+
+        private void RefreshProgressData()
+        {
+            UIController.instance.RefreshData(_applePoints, _numOfPassedLevels);
+            ProgressData progressData = SaveSystem.LoadProgress();
+            progressData.resultingNumOfApples = _applePoints;
+            progressData.recordLevelsPassed = Math.Max(_numOfPassedLevels, SaveSystem.LoadProgress().recordLevelsPassed);
+            SaveSystem.SaveProgress(progressData);
+        }
+        IEnumerator LoadingUpdateLevel()
+        {
+            yield return new WaitForSeconds(_gameProperies.restartGameDelay);
+            UpdateLevel();
         }
         IEnumerator LoadingRestart()
         {
             yield return new WaitForSeconds(_gameProperies.restartGameDelay);
-            //LoadLoseCanvas();
-            _numOfHitLog = 0;
+
+            _numOfPassedLevels = SaveSystem.LoadProgress().recordLevelsPassed;
+            RefreshProgressData();
+            UIController.instance.OpenCanvas(TypeOfUICanvas.Lose);
+        }
+
+        private void UpdateLevel()
+        {
             _logSpawner.DestroyLog();
             _knifeSpawner.DestroyCurrentKnife();
-            Debug.Log("Инициализировать объекты заново");
-            InitializeObjects();
+            StartGame();
         }
+
     }
 }

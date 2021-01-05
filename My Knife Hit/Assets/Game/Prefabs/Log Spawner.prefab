@@ -44,5 +44,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _knifePrefab: {fileID: 3283037225480395287, guid: 30f4cbb89ced74845aae976f56cf2aff, type: 3}
+  _applePrefab: {fileID: 5818400343820980172, guid: 82043b68c11978f4ca919c129a0b8947, type: 3}
   _gameProperies: {fileID: 11400000, guid: bfafbb6e975f6834d8f2319eaf81f717, type: 2}
   _logPrefab: {fileID: 9098378963778164786, guid: 9734a363f98bea74bba9c5b4947118b6, type: 3}

@@ -18,10 +18,10 @@ namespace KnifeHit.Core
         [Range(5f, 25f)][SerializeField] public float knifeSpeed = 10f;
         [SerializeField] public float respawnKnifeDelay = 0.1f;
         [SerializeField] public float restartGameDelay = 1f;
-        [Header("Knifes to throw")]
+        [Header("Knives to throw")]
         [SerializeField] public int minNumOfKnivesThrow = 4;
         [SerializeField] public int maxNumOfKnivesThrow = 6;
-        [Header("Start knifes in log")]
+        [Header("Start knives in log")]
         [SerializeField] public int minNumOfStartKnives = 0;
         [SerializeField] public int maxNumOfStartKnives = 3;
     }

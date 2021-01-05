@@ -15,11 +15,11 @@ MonoBehaviour:
   rotationSpeedOfLog: 205
   minTimeOnStartRotation: 0
   maxTimeOnStartRotation: 3
-  chanceOfAppleAppearing: 0.31
+  chanceOfAppleAppearing: 0.25
   knifeSpeed: 20
   respawnKnifeDelay: 0.1
-  restartGameDelay: 1
+  restartGameDelay: 0.8
   minNumOfKnivesThrow: 4
-  maxNumOfKnivesThrow: 8
-  minNumOfStartKnives: 0
+  maxNumOfKnivesThrow: 9
+  minNumOfStartKnives: 1
   maxNumOfStartKnives: 3

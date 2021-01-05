@@ -4,18 +4,18 @@
     [System.Serializable]
     public class ProgressData
     {
-        public int recordScroreOfKnives;
+        public int recordLevelsPassed;
         public int resultingNumOfApples;
 
         public ProgressData(ProgressData progressData)
         {
-            this.recordScroreOfKnives = progressData.recordScroreOfKnives;
+            this.recordLevelsPassed = progressData.recordLevelsPassed;
             this.resultingNumOfApples = progressData.resultingNumOfApples;
         }
 
         public ProgressData()
         {
-            this.recordScroreOfKnives = 0;
+            this.recordLevelsPassed = 0;
             this.resultingNumOfApples = 0;
         }
     }

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 950273461}
   - component: {fileID: 8397217355611411611}
   - component: {fileID: 8798851351661914822}
+  - component: {fileID: -4730243511541959161}
   m_Layer: 0
   m_Name: Log
   m_TagString: Untagged
@@ -116,7 +117,7 @@ MonoBehaviour:
   LogChipsVFXPrefab: {fileID: 3504154870537178734, guid: e6df683131feb7c4ea16d582fe4a8f73, type: 3}
   LogsVFXPrefab: {fileID: 5682767479735439212, guid: d6c4d644458ab0e4cbe029522da2b4ce, type: 3}
   SmallLogChipsVFXPrefab: {fileID: 1811658044734294725, guid: e4194678f7d47cc4791ccfec6db336bb, type: 3}
-  destroyAndChildVFXDelay: 3
+  destroyAndChildVFXDelay: 2
 --- !u!114 &8798851351661914822
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -129,4 +130,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d05b38e2757c7ac46a853d91e3f399f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeOnStartRotate: 0
+--- !u!95 &-4730243511541959161
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9098378963778164786}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 91763683de4771d468ce611c8d602d36, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
