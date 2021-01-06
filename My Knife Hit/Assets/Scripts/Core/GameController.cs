@@ -15,9 +15,9 @@ namespace KnifeHit.Core
 
         private LogSpawner _logSpawner;
         private KnifeSpawner _knifeSpawner;
-        private int _numOfKnivesToSpawn;
-        private int _numOfThorwKnives;
-        private int _numOfHitLog;
+        private int _numOfKnivesToSpawn = 0;
+        private int _numOfThorwKnives = 0;
+        private int _numOfHitLog = 0;
         private int _applePoints = 0;
         private int _numOfPassedLevels = 0;
 
@@ -32,11 +32,14 @@ namespace KnifeHit.Core
                 Destroy(gameObject);
             }
 
+            
+        }
+        private void Start()
+        {
             InitializeObjects();
             UploadData();
             Vibration.Init();
         }
-
         private void UploadData()
         {
             ProgressData progressData = SaveSystem.LoadProgress();

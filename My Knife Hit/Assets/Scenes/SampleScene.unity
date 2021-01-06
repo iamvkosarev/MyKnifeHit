@@ -551,6 +551,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1263198715, guid: e55dacb7c55f09a45a8be6d7c4b01c12, type: 3}
+      propertyPath: m_text
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1263198715, guid: e55dacb7c55f09a45a8be6d7c4b01c12, type: 3}
+      propertyPath: m_firstOverflowCharacterIndex
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1263198715, guid: e55dacb7c55f09a45a8be6d7c4b01c12, type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1263198715, guid: e55dacb7c55f09a45a8be6d7c4b01c12, type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1263198715, guid: e55dacb7c55f09a45a8be6d7c4b01c12, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1263198715, guid: e55dacb7c55f09a45a8be6d7c4b01c12, type: 3}
+      propertyPath: m_fontSize
+      value: 62.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1263198715, guid: e55dacb7c55f09a45a8be6d7c4b01c12, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 62.8
+      objectReference: {fileID: 0}
     - target: {fileID: 1387761795, guid: e55dacb7c55f09a45a8be6d7c4b01c12, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -559,6 +587,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1263984248}
+    - target: {fileID: 159335692039803990, guid: e55dacb7c55f09a45a8be6d7c4b01c12, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1174659736552012479, guid: e55dacb7c55f09a45a8be6d7c4b01c12, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -626,6 +658,10 @@ PrefabInstance:
     - target: {fileID: 3343196277442956307, guid: e55dacb7c55f09a45a8be6d7c4b01c12, type: 3}
       propertyPath: m_Name
       value: Throw Knife Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 6607776112433587341, guid: e55dacb7c55f09a45a8be6d7c4b01c12, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7306552340786105147, guid: e55dacb7c55f09a45a8be6d7c4b01c12, type: 3}
       propertyPath: m_Name
