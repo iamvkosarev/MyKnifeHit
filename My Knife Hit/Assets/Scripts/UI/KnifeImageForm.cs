@@ -6,6 +6,7 @@ namespace KnifeHit.UI
 {
     public class KnifeImageForm : MonoBehaviour
     {
+        [SerializeField] private float _destroyDelay = 2f;
         private Animator _animator;
         private void Awake()
         {
@@ -16,12 +17,9 @@ namespace KnifeHit.UI
         {
             transform.parent = transform.parent.transform.parent;
             _animator.SetTrigger("close");
+            Destroy(gameObject, _destroyDelay);
         }
 
-        public void Destroy()
-        {
-            Destroy(gameObject);
-    }
     }
 
     

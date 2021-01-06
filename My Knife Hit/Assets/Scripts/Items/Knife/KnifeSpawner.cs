@@ -9,13 +9,18 @@ namespace KnifeHit.Items.Knife
     public class KnifeSpawner : MonoBehaviour
     {
 
-        [SerializeField] private GameProperies _gameProperies;
         [SerializeField] private GameObject _knifePrefab;
 
+        private GameProperies _gameProperies;
         private int _numOfKnifeToSpawn = 0;
         private KnifeObj _currentKnife;
         private Mover _currentKnifeMover;
         private bool _wasCurrentKnifeThrown = false;
+
+        private void Start()
+        {
+            _gameProperies = GameController.instance.gameProperies;
+        }
 
         public void ReactOnKnifeTouch(object obj, OnKnifeCollisionEventArgs args)
         {

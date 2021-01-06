@@ -9,9 +9,9 @@ namespace KnifeHit.Core
 {
     public class AndroidNotificationController : MonoBehaviour
     {
-        [SerializeField] private GameProperies _gameProperies;
         public static AndroidNotificationController instance = null;
 
+        private GameProperies _gameProperies;
         private AndroidNotificationChannel _channel;
         private string _CHANNEL_ID = "channel_id";
         private int _lastIdentifier = -1;
@@ -30,7 +30,10 @@ namespace KnifeHit.Core
 
             UpdateNotificationData();
         }
-
+        private void Start()
+        {
+            _gameProperies = GameController.instance.gameProperies;
+        }
         private void UpdateNotificationData()
         {
             // Create a notification channel

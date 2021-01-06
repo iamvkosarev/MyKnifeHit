@@ -43,6 +43,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d98bdf2a75249f4448c3c7f04bb43c03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gameProperies: {fileID: 11400000, guid: bfafbb6e975f6834d8f2319eaf81f717, type: 2}
+  gameProperies: {fileID: 11400000, guid: b301156d526037a46ab2b9c1f82a50d5, type: 2}
   _logSpawnerPrefab: {fileID: 0}
   _knifeSpawnerPrefab: {fileID: 0}

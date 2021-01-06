@@ -8,7 +8,7 @@ namespace KnifeHit.Core
 {
     public class GameController : MonoBehaviour
     {
-        [SerializeField] private GameProperies _gameProperies;
+        [SerializeField] public GameProperies gameProperies;
         [SerializeField] private GameObject _logSpawnerPrefab;
         [SerializeField] private GameObject _knifeSpawnerPrefab;
         public static GameController instance = null;
@@ -56,8 +56,8 @@ namespace KnifeHit.Core
 
         private void InitializeObjects()
         {
-            _numOfKnivesToSpawn = UnityEngine.Random.Range(_gameProperies.minNumOfKnivesThrow,
-                   _gameProperies.maxNumOfKnivesThrow + 1);
+            _numOfKnivesToSpawn = UnityEngine.Random.Range(gameProperies.minNumOfKnivesThrow,
+                   gameProperies.maxNumOfKnivesThrow + 1);
             _logSpawner = _logSpawnerPrefab.GetComponent<LogSpawner>();
             _knifeSpawner = _knifeSpawnerPrefab.GetComponent<KnifeSpawner>();
 
@@ -78,8 +78,8 @@ namespace KnifeHit.Core
             UIController.instance.OpenCanvas(TypeOfUICanvas.Game);
             _numOfHitLog = 0;
             _numOfThorwKnives = 0;
-            _numOfKnivesToSpawn = UnityEngine.Random.Range(_gameProperies.minNumOfKnivesThrow,
-                _gameProperies.maxNumOfKnivesThrow + 1);
+            _numOfKnivesToSpawn = UnityEngine.Random.Range(gameProperies.minNumOfKnivesThrow,
+                gameProperies.maxNumOfKnivesThrow + 1);
             RefreshProgressData();
             StartSpawningLog();
             StartSpawningKnives();
@@ -88,9 +88,9 @@ namespace KnifeHit.Core
         {
             
             _logSpawner.SpawnLog();
-            _logSpawner.SpawnKnifeOnLog(UnityEngine.Random.Range(_gameProperies.minNumOfStartKnives,
-                _gameProperies.maxNumOfStartKnives+1));
-            if (UnityEngine.Random.Range(0f, 1f) < _gameProperies.chanceOfAppleAppearing)
+            _logSpawner.SpawnKnifeOnLog(UnityEngine.Random.Range(gameProperies.minNumOfStartKnives,
+                gameProperies.maxNumOfStartKnives+1));
+            if (UnityEngine.Random.Range(0f, 1f) < gameProperies.chanceOfAppleAppearing)
             {
                 _logSpawner.SpawnAppleOnLog();
             }
@@ -153,12 +153,12 @@ namespace KnifeHit.Core
         
         IEnumerator LoadingUpdateLevel()
         {
-            yield return new WaitForSeconds(_gameProperies.restartGameDelay);
+            yield return new WaitForSeconds(gameProperies.restartGameDelay);
             UpdateLevel();
         }
         IEnumerator LoadingRestart()
         {
-            yield return new WaitForSeconds(_gameProperies.restartGameDelay);
+            yield return new WaitForSeconds(gameProperies.restartGameDelay);
 
             _numOfPassedLevels = SaveSystem.LoadProgress().recordLevelsPassed;
             RefreshProgressData();

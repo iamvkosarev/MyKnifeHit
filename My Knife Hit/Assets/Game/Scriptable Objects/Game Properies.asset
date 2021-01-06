@@ -9,20 +9,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74f2e85157b175242b33b6e7a4359889, type: 3}
+  m_Script: {fileID: 11500000, guid: b7994425e3d832a49995d1cdfebbd3b9, type: 3}
   m_Name: Game Properies
   m_EditorClassIdentifier: 
-  rotationSpeedOfLog: 170
+  minRotationSpeedOfLog: 150
+  maxRotationSpeedOfLog: 180
   minTimeOnStartRotation: 0
   maxTimeOnStartRotation: 3
   chanceOfAppleAppearing: 0.25
   chanceOfRotationWithPeriod: 0.25
-  rotationgPeriod: 8
-  knifeSpeed: 20
-  respawnKnifeDelay: 0.1
-  restartGameDelay: 0.8
+  rotationgPeriod: 5
+  respawnKnifeDelay: 0.12
+  restartGameDelay: 1
+  knifeSpeed: 30
   minNumOfKnivesThrow: 3
-  maxNumOfKnivesThrow: 8
+  maxNumOfKnivesThrow: 9
   minNumOfStartKnives: 1
   maxNumOfStartKnives: 3
   notificationTitle: "\u0413\u0434\u0435 \u0442\u044B \u0432\u043E\u0435\u043D?"

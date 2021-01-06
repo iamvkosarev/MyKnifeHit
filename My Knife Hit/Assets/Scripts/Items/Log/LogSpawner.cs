@@ -11,30 +11,22 @@ namespace KnifeHit.Items.Log
     {
         [SerializeField] private GameObject _knifePrefab;
         [SerializeField] private GameObject _applePrefab;
-        [SerializeField] private GameProperies _gameProperies;
         [SerializeField] private GameObject _logPrefab;
 
         private LogObj _currentLog;
+        private GameProperies _gameProperies;
         private Rotator _currentLogRotator;
         private int _numOfChildrenCurrentLog = 0;
         private float _initialAngleOfKnifeSpawn = -1f;
 
-        private void Update()
+        private void Start()
         {
-            UpdateRotationSpeedAcordingProps();
+            _gameProperies = GameController.instance.gameProperies;
         }
         public void ExploreLog()
         {
             _currentLog.DestroyVFX();
         }
-        private void UpdateRotationSpeedAcordingProps()
-        {
-            if (_currentLogRotator !=null && _currentLogRotator.GetSpeed() != _gameProperies.rotationSpeedOfLog)
-            {
-                _currentLogRotator.SetRotationSpeed(_gameProperies.rotationSpeedOfLog);
-            }
-        }
-
         public void SpawnLog()
         {
             GameObject newLog = Instantiate(_logPrefab);
@@ -50,10 +42,11 @@ namespace KnifeHit.Items.Log
         {
             TypeOfRotation typeOfRotation = UnityEngine.Random.Range(0f, 1f) < _gameProperies.chanceOfRotationWithPeriod ? TypeOfRotation.PeriodRotation : TypeOfRotation.Normal;
             _currentLogRotator.SetTypeOfRotation(typeOfRotation);
-            _currentLogRotator.SetPeriodOfRotation(_gameProperies.rotationgPeriod);
+            _currentLogRotator.SetPeriodOfRotation(GameController.instance.gameProperies.rotationgPeriod);
 
 
-            _currentLogRotator.SetRotationSpeed(_gameProperies.rotationSpeedOfLog);
+            _currentLogRotator.SetRotationSpeed(
+                UnityEngine.Random.Range(_gameProperies.minRotationSpeedOfLog, _gameProperies.maxRotationSpeedOfLog));
             _currentLogRotator.SetRotationSide(UnityEngine.Random.Range(0,2) == 1);
             _currentLogRotator.SetTimeOnStartRotation(
                 UnityEngine.Random.Range(_gameProperies.minTimeOnStartRotation, _gameProperies.maxTimeOnStartRotation));
