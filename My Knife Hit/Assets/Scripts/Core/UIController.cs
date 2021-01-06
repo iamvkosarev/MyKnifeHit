@@ -76,7 +76,7 @@ namespace KnifeHit.Core
             {
                 DestroyTrownKnifes();
             }
-            if(_rectFormForKnives.transform.childCount != _numOfKnivesGenerally)
+            if(_rectFormForKnives.transform.childCount != _numOfKnivesGenerally - _numOfDestroyedKnifeImages)
             {
                 RefreshKnivesForm();
             }

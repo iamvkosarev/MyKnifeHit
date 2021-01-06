@@ -6,6 +6,7 @@
     {
         public int recordLevelsPassed;
         public int resultingNumOfApples;
+        
 
         public ProgressData(ProgressData progressData)
         {

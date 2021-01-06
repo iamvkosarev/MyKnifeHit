@@ -68,6 +68,7 @@ namespace KnifeHit.Items.Knife
         {
             if (_wasCurrentKnifeThrown) { return; }
             _wasCurrentKnifeThrown = true;
+            GameController.instance.AddThorwnKnife();
                Vector2 velocity = new Vector2(0, _gameProperies.knifeSpeed);
             if (_currentKnifeMover != null)
             {

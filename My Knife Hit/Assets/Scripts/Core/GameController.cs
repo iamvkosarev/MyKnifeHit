@@ -16,6 +16,7 @@ namespace KnifeHit.Core
         private LogSpawner _logSpawner;
         private KnifeSpawner _knifeSpawner;
         private int _numOfKnivesToSpawn;
+        private int _numOfThorwKnives;
         private int _numOfHitLog;
         private int _applePoints = 0;
         private int _numOfPassedLevels = 0;
@@ -41,16 +42,16 @@ namespace KnifeHit.Core
             ProgressData progressData = SaveSystem.LoadProgress();
             _applePoints = progressData.resultingNumOfApples;
             _numOfPassedLevels = progressData.recordLevelsPassed;
-            UIController.instance.RefreshData(_applePoints, _numOfPassedLevels, _numOfKnivesToSpawn, _numOfHitLog);
+            UIController.instance.RefreshData(_applePoints, _numOfPassedLevels, _numOfKnivesToSpawn, _numOfThorwKnives);
         }
         private void RefreshProgressData()
         {
-            UIController.instance.RefreshData(_applePoints, _numOfPassedLevels, _numOfKnivesToSpawn, _numOfHitLog);
+            UIController.instance.RefreshData(_applePoints, _numOfPassedLevels, _numOfKnivesToSpawn, _numOfThorwKnives);
             ProgressData progressData = SaveSystem.LoadProgress();
             progressData.resultingNumOfApples = _applePoints;
             progressData.recordLevelsPassed = Math.Max(_numOfPassedLevels, SaveSystem.LoadProgress().recordLevelsPassed);
             SaveSystem.SaveProgress(progressData);
-            UIController.instance.RefreshData(_applePoints, _numOfPassedLevels, _numOfKnivesToSpawn, _numOfHitLog);
+            UIController.instance.RefreshData(_applePoints, _numOfPassedLevels, _numOfKnivesToSpawn, _numOfThorwKnives);
         }
 
         private void InitializeObjects()
@@ -65,6 +66,7 @@ namespace KnifeHit.Core
         {
             UIController.instance.OpenCanvas(TypeOfUICanvas.Game);
             _numOfHitLog = 0;
+            _numOfThorwKnives = 0;
             _numOfPassedLevels = 0;
             RefreshProgressData();
             StartSpawningLog();
@@ -72,8 +74,10 @@ namespace KnifeHit.Core
         }
         public void StartGame()
         {
+            AndroidNotificationController.instance.CancelNotification();
             UIController.instance.OpenCanvas(TypeOfUICanvas.Game);
             _numOfHitLog = 0;
+            _numOfThorwKnives = 0;
             _numOfKnivesToSpawn = UnityEngine.Random.Range(_gameProperies.minNumOfKnivesThrow,
                 _gameProperies.maxNumOfKnivesThrow + 1);
             RefreshProgressData();
@@ -100,6 +104,7 @@ namespace KnifeHit.Core
 
         public void LoadLoseCanvas()
         {
+            AndroidNotificationController.instance.CreatNotification();
             Vibration.VibratePop();
             StartCoroutine(LoadingRestart());
         }
@@ -128,7 +133,12 @@ namespace KnifeHit.Core
 
                 NextLevel();
             }
-            UIController.instance.RefreshData(_applePoints, _numOfPassedLevels, _numOfKnivesToSpawn, _numOfHitLog);
+        }
+
+        public void AddThorwnKnife()
+        {
+            _numOfThorwKnives++;
+            UIController.instance.RefreshData(_applePoints, _numOfPassedLevels, _numOfKnivesToSpawn, _numOfThorwKnives);
         }
 
         public void AddApplePoint()
@@ -136,7 +146,7 @@ namespace KnifeHit.Core
             _applePoints++;
             Vibration.VibratePeek();
             RefreshProgressData();
-            UIController.instance.RefreshData(_applePoints, _numOfPassedLevels, _numOfKnivesToSpawn, _numOfHitLog);
+            UIController.instance.RefreshData(_applePoints, _numOfPassedLevels, _numOfKnivesToSpawn, _numOfThorwKnives);
         }
 
 
