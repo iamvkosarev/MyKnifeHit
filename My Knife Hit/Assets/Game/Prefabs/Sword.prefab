@@ -145,6 +145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c6ade455c2e5434990b82c1a3f727ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _canReact: 1
 --- !u!60 &8823701355495865708
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -155,7 +156,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -170,19 +171,19 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.47, y: -0.45}
-      - {x: -0.28, y: -0.19999999}
-      - {x: -0.42, y: -0.089999996}
-      - {x: -0.37, y: -0.02}
-      - {x: -0.19, y: -0.13}
-      - {x: 0.17, y: 0.39999998}
-      - {x: 0.53, y: 0.53999996}
-      - {x: 0.45999998, y: 0.21}
-      - {x: -0.07, y: -0.19999999}
-      - {x: 0.11, y: -0.32}
-      - {x: 0.02, y: -0.39999998}
-      - {x: -0.11, y: -0.32}
-      - {x: -0.35, y: -0.55}
+    - - {x: -0.14999999, y: -0.31}
+      - {x: -0.39999998, y: -0.55}
+      - {x: -0.5, y: -0.44}
+      - {x: -0.32, y: -0.19999999}
+      - {x: -0.35999998, y: -0.16}
+      - {x: -0.29, y: -0.089999996}
+      - {x: -0.22999999, y: -0.13}
+      - {x: 0.12, y: 0.39999998}
+      - {x: 0.48, y: 0.53}
+      - {x: 0.42, y: 0.19999999}
+      - {x: -0.11, y: -0.19}
+      - {x: -0.049999997, y: -0.24}
+      - {x: -0.12, y: -0.34}
 --- !u!95 &885780714264692996
 Animator:
   serializedVersion: 3

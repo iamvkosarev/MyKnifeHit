@@ -40,8 +40,10 @@ namespace KnifeHit.Items.Log
         }
         public void DestroyVFX()
         {
-            for (int i = 0; i < transform.childCount; i++)
+            Debug.Log(transform.childCount);
+            for (int i = transform.childCount - 1; i >= 0; i--)
             {
+                Debug.Log(i);
                 Transform knife = transform.GetChild(i);
                 SetMovementProps(knife);
                 SetKnifeProps(knife);
@@ -78,13 +80,13 @@ namespace KnifeHit.Items.Log
             Rotator rotator = knife.GetComponent<Rotator>();
             if (mover)
             {
-                Vector2 velocity = new Vector2(UnityEngine.Random.Range(-2f, 2f), UnityEngine.Random.Range(0f, 5f));
+                Vector2 velocity = new Vector2(UnityEngine.Random.Range(-3f, 3f), UnityEngine.Random.Range(1f, 6f));
                 mover.SetVelocity(velocity);
                 mover.SwitchRigidbodyType(RigidbodyType2D.Dynamic);
             }
             if (rotator)
             {
-                float rotationSpeed = UnityEngine.Random.Range(140f, 300f);
+                float rotationSpeed = UnityEngine.Random.Range(200f, 350f);
                 rotator.SetRotationSpeed(rotationSpeed);
                 rotator.SetRotationSide(UnityEngine.Random.Range(0, 2) == 1);
             }

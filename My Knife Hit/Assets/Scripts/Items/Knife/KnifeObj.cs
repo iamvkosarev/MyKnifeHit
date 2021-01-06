@@ -23,15 +23,17 @@ namespace KnifeHit.Items.Knife
     }
     public class KnifeObj : MonoBehaviour
     {
+        [SerializeField] private bool _canReact = true;
         public event EventHandler<OnKnifeCollisionEventArgs> OnKnifeCollision;
         private Mover _mover;
         private Rotator _rotator;
-        private bool _canReact = true;
+        private Animator _animator;
 
         private void Awake()
         {
             _mover = GetComponent<Mover>();
             _rotator = GetComponent<Rotator>();
+            _animator = GetComponent<Animator>();
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
@@ -68,6 +70,7 @@ namespace KnifeHit.Items.Knife
         }
         public void SetDestroyTime(float time)
         {
+            _animator.SetTrigger("close");
             Destroy(gameObject, time);
         }
         public void MakeFree()
