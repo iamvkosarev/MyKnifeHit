@@ -33,6 +33,7 @@ namespace KnifeHit.Core
 
             InitializeObjects();
             UploadData();
+            Vibration.Init();
         }
 
         private void UploadData()
@@ -99,6 +100,7 @@ namespace KnifeHit.Core
 
         public void LoadLoseCanvas()
         {
+            Vibration.VibratePop();
             StartCoroutine(LoadingRestart());
         }
 
@@ -119,6 +121,7 @@ namespace KnifeHit.Core
         public void AddHitPoint()
         {
             _numOfHitLog++;
+            Vibration.VibratePop();
             if (_numOfHitLog == _numOfKnivesToSpawn)
             {
                 _logSpawner.ExploreLog();
@@ -131,6 +134,7 @@ namespace KnifeHit.Core
         public void AddApplePoint()
         {
             _applePoints++;
+            Vibration.VibratePeek();
             RefreshProgressData();
             UIController.instance.RefreshData(_applePoints, _numOfPassedLevels, _numOfKnivesToSpawn, _numOfHitLog);
         }
