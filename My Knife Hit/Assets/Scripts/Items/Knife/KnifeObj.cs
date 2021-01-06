@@ -41,7 +41,6 @@ namespace KnifeHit.Items.Knife
             if (!_canReact) { return; }
             _canReact = false;
 
-
             LogObj log = collision.gameObject.GetComponent<LogObj>();
             AppleObj apple = collision.gameObject.GetComponent<AppleObj>();
             if (collision.gameObject.GetComponent<Mover>())

@@ -40,10 +40,8 @@ namespace KnifeHit.Items.Log
         }
         public void DestroyVFX()
         {
-            Debug.Log(transform.childCount);
             for (int i = transform.childCount - 1; i >= 0; i--)
             {
-                Debug.Log(i);
                 Transform knife = transform.GetChild(i);
                 SetMovementProps(knife);
                 SetKnifeProps(knife);
