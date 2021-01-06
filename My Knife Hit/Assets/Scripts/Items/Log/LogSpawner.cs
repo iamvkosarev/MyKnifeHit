@@ -48,6 +48,11 @@ namespace KnifeHit.Items.Log
 
         private void SetProperiesToCurrentLog()
         {
+            TypeOfRotation typeOfRotation = UnityEngine.Random.Range(0f, 1f) < _gameProperies.chanceOfRotationWithPeriod ? TypeOfRotation.PeriodRotation : TypeOfRotation.Normal;
+            _currentLogRotator.SetTypeOfRotation(typeOfRotation);
+            _currentLogRotator.SetPeriodOfRotation(_gameProperies.rotationgPeriod);
+
+
             _currentLogRotator.SetRotationSpeed(_gameProperies.rotationSpeedOfLog);
             _currentLogRotator.SetRotationSide(UnityEngine.Random.Range(0,2) == 1);
             _currentLogRotator.SetTimeOnStartRotation(

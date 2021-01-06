@@ -15,6 +15,8 @@ namespace KnifeHit.Core
         [SerializeField] public float minTimeOnStartRotation = 0f;
         [SerializeField] public float maxTimeOnStartRotation = 3f;
         [Range(0f,1f)][SerializeField] public float chanceOfAppleAppearing= 0.25f;
+        [Range(0f, 1f)] [SerializeField] public float chanceOfRotationWithPeriod = 0.25f;
+        [SerializeField] public float rotationgPeriod = 5f;
         [Range(5f, 25f)][SerializeField] public float knifeSpeed = 10f;
         [Range(0f, 1.2f)][SerializeField] public float respawnKnifeDelay = 0.1f;
         [SerializeField] public float restartGameDelay = 1f;
