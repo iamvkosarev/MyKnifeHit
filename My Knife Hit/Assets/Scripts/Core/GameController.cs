@@ -32,7 +32,6 @@ namespace KnifeHit.Core
                 Destroy(gameObject);
             }
 
-            
         }
         private void Start()
         {
